@@ -41,7 +41,7 @@ def random_dockerfile():
         label_TLD = random.choice(LABELS_TLDS)
         numlabels = random.randrange(1, 5)
         version = generate_version()
-        label_K = map(generate_label, [label_TLD]*numlabels) + ['version="' + version + '"']
+        label_K = map(generate_label, [label_TLD]*numlabels) + ['version="' + version + '"'] + ['base_image="' + from_K + '"']
         layers = [1] * random.randrange(1, 4)
 
         return (version, DOCKERFILE_TEMPLATE.format(
